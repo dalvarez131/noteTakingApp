@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Note-taking App</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://image.flaticon.com/icons/png/512/1567/1567073.png" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body class="body" onload="defaultNotesLoad()">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Note - Taking App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#formModal" onclick="clickAditionNotes()">Add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#formModal" onclick="clickEditionNotes()">Edit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#alertDeleteModal">Delete</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Choose a color
+            </a>
+            <div class="dropdown-menu dropdown-menu-color " aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" id="bg-primary" href="#" onclick="clickDropDownBoxColorNote(this.id)">Blue</a>
+              <a class="dropdown-item" id="bg-secondary" href="#" onclick="clickDropDownBoxColorNote(this.id)">Grey</a>
+              <a class="dropdown-item" id="bg-success" href="#" onclick="clickDropDownBoxColorNote(this.id)">Green</a>
+              <a class="dropdown-item" id="bg-danger" href="#" onclick="clickDropDownBoxColorNote(this.id)">Red</a>
+              <a class="dropdown-item" id="bg-warning" href="#" onclick="clickDropDownBoxColorNote(this.id)">Yellow</a>
+              <a class="dropdown-item" id="bg-info" href="#" onclick="clickDropDownBoxColorNote(this.id)">Pelorous</a>
+              <a class="dropdown-item" id="bg-dark" href="#" onclick="clickDropDownBoxColorNote(this.id)">Black</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div>
+      <div class="row">
+        <div class="col-3">
+          <div class="list-group defaulNotes">
+          </div>
+        </div>
+        <div class="col-9 bigNote">
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade bd-example-modal-lg" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header titleEdition"></div>
+        <div class="modal-body">
+          <form class="needs-validation" id="editionAditionForm"novalidate>
+            <div class="form-group subjectEdition"></div>
+            <div class="form-group contentEdition"></div>
+            <div class="form-group colorBoxEdition"></div>
+            <div class="modal-footer buttonEdition"></div>
+          </form>
+        </div>
+     </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="alertDeleteModal" tabindex="-1" role="dialog" aria-labelledby="alertDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alertDeleteModalLabel">Deleting Note</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Do you really want to delete this note?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  onclick="deleteNote()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script type="text/javascript" src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
